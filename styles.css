@@ -1,0 +1,33 @@
+#login {
+    display: block !important; /* التأكد من الظهور بأولوية عالية */
+    position: relative;
+    z-index: 1;
+}
+#main {
+    display: none;
+}
+#dashboard {
+    display: none;
+}
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f9f9f9; /* لجعل الخلفية مرئية */
+    display: block !important; /* التأكد من عرض الحاوية */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+.present { background-color: #e0ffe0; }
+.absent { background-color: #ffe0e0; }

@@ -1,0 +1,47 @@
+{
+    "name": "worker-management",
+    "version": "1.0.0",
+    "description": "A worker management application",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder"
+    },
+    "build": {
+        "appId": "com.worker.management",
+        "files": [
+            "main.js",
+            "index.html",
+            "renderer.js",
+            "server.js",
+            "styles.css",
+            "test.html",
+            "workers.db",
+            "node_modules/**/*"
+        ],
+        "directories": {
+            "output": "dist"
+        },
+        "win": {
+            "target": "nsis"
+        },
+        "mac": {
+            "target": "dmg"
+        },
+        "linux": {
+            "target": "AppImage"
+        }
+    },
+    "dependencies": {
+        "chart.js": "^4.4.1",
+        "electron": "^35.0.0",
+        "exceljs": "^4.3.0",
+        "express": "^4.18.2",
+        "jspdf": "^2.5.1",
+        "jspdf-autotable": "^5.0.2",
+        "sqlite3": "^5.1.7"
+    },
+    "devDependencies": {
+        "electron-builder": "^24.9.1"
+    }
+}

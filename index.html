@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة العمالة</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' http://localhost:3000; style-src 'self' 'unsafe-inline'; connect-src 'self' http://localhost:3000; img-src 'self' data:;">
+    <link rel="stylesheet" href="styles.css">
+    <script src="/node_modules/chart.js/dist/chart.umd.js"></script>
+    <script src="/node_modules/jspdf/dist/jspdf.umd.min.js"></script>
+    <script src="/node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div id="login" style="display: none;">
+        <div class="login-container">
+            <h2>تسجيل الدخول</h2>
+            <p id="loginMessage"></p>
+            <input type="email" id="email" placeholder="البريد الإلكتروني">
+            <input type="password" id="password" placeholder="كلمة المرور">
+            <button onclick="login()">دخول</button>
+            <button onclick="register()">تسجيل حساب جديد</button>
+        </div>
+    </div>
+    <div id="main" style="display: none;">
+        <h1>إدارة العمالة</h1>
+        <p>مرحبًا، <span id="userEmail"></span> | <button onclick="logout()">تسجيل الخروج</button></p>
+        <input type="date" id="datePicker">
+        <table>
+            <thead>
+                <tr>
+                    <th>اسم العامل</th>
+                    <th>الحضور</th>
+                    <th>اليومية</th>
+                    <th>السلفة</th>
+                    <th>المتبقي</th>
+                    <th>اليوميات</th>
+                </tr>
+            </thead>
+            <tbody id="workerTable"></tbody>
+        </table>
+        <button onclick="showAddWorkerDialog()">إضافة عامل</button>
+        <button onclick="showDashboard()">عرض لوحة التحكم</button>
+    </div>
+    <div id="dashboard" style="display: none;">
+        <h2>لوحة التحكم</h2>
+        <button onclick="showDailyChart()">مخطط يومي</button>
+        <button onclick="showWeeklyChart()">مخطط أسبوعي</button>
+        <button onclick="exportToPDF()">تصدير إلى PDF</button>
+        <button onclick="exportToExcel()">تصدير إلى Excel</button>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- حوار إضافة عامل -->
+    <div id="addWorkerDialog" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border: 1px solid #ccc;">
+        <h3>إضافة عامل جديد</h3>
+        <input type="text" id="workerNameInput" placeholder="اسم العامل">
+        <button onclick="confirmAddWorker()">إضافة</button>
+        <button onclick="closeAddWorkerDialog()">إلغاء</button>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
